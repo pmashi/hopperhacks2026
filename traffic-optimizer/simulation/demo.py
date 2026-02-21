@@ -1,6 +1,9 @@
 import gymnasium as gym
 import sumo_rl
 from stable_baselines3 import DQN
+import pandas as pd
+import os
+
 
 print("Loading trained AI Traffic Optimizer...")
 
@@ -19,10 +22,12 @@ model = DQN.load("outputs/dqn_traffic_optimizer")
 obs, info = env.reset()
 done = False
 
+metrics_log = []
 while not done:
-    # deterministic=True means the AI uses its strict learned rules, no random exploring
     action, _states = model.predict(obs, deterministic=True)
     obs, reward, terminated, truncated, info = env.step(action)
     done = terminated or truncated
+    if info:
+        metrics_log.append(info) # Capture the data
 
 env.close()
