@@ -9,7 +9,7 @@ print("Starting bulletproof baseline simulation...")
 os.makedirs("outputs", exist_ok=True)
 
 env = gym.make(
-    'demo',
+    'sumo-rl-v0',
     net_file='intersect.net.xml',
     route_file='routes.rou.xml',
     use_gui=True, 
