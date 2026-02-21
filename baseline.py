@@ -12,8 +12,8 @@ env = gym.make(
     'sumo-rl-v0',
     net_file='intersect.net.xml',
     route_file='routes.rou.xml',
-    use_gui=False, 
-    num_seconds=20000,
+    use_gui=True, 
+    num_seconds=5000,
     fixed_ts=True  # Force standard traffic light logic
 )
 
