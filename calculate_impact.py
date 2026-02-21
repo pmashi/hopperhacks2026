@@ -38,4 +38,5 @@ if static_co2 > 0:
     
     print("-" * 34)
     print(f"Total CO2 Prevented:      {co2_saved:.2f} kg")
+    print(f"Total Idle Time Prevented:{static_idle - ai_idle:.2f} sec")
     print(f"Emissions Reduction:      {percent_reduction:.1f}% decrease in carbon footprint!")

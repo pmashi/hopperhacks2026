@@ -9,11 +9,11 @@ print("Starting bulletproof baseline simulation...")
 os.makedirs("outputs", exist_ok=True)
 
 env = gym.make(
-    'sumo-rl-v0',
+    'demo',
     net_file='intersect.net.xml',
     route_file='routes.rou.xml',
     use_gui=True, 
-    num_seconds=5000,
+    num_seconds=100000,
     fixed_ts=True  # Force standard traffic light logic
 )
 

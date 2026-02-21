@@ -15,7 +15,7 @@ st.markdown("""
 
 # Sidebar for Configuration
 st.sidebar.header("Simulation Settings")
-sim_duration = st.sidebar.slider("Simulation Duration (seconds)", 100, 2000, 1000)
+sim_duration = st.sidebar.slider("Simulation Duration (seconds)", 100, 100000, 1000)
 
 # Main Dashboard
 col1, col2 = st.columns(2)
@@ -33,8 +33,7 @@ with col1:
         time.sleep(0.05) 
         
         # 3. Start the second process (Baseline)
-        proc2 = subprocess.Popen(["python", "baseline.py"]) [cite: 1]
-        
+        proc2 = subprocess.Popen(["python", "baseline.py"]) 
         # Wait for both to finish before showing success
         proc1.wait()
         proc2.wait()
@@ -54,7 +53,7 @@ with col2:
 # Impact Metrics
 st.divider()
 st.subheader("Real-Time Sustainability Metrics")
-m1, m2, m3 = st.columns(3)
-m1.metric("CO2 Saved", "12.4 kg", "-15%")
-m2.metric("Avg. Wait Time", "18s", "-30%")
-m3.metric("Fuel Efficiency", "+12%", "Green")
+m1, m2= st.columns(2)
+m1.metric("CO2 Saved", "201.24 kg", "-83.04%", delta_color="green")
+#Total idling seconds/total iteratios = average time waiting (done in calculation)
+m2.metric("Avg. Wait Time", "34s", "Increased 90%", delta_color="green")
