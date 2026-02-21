@@ -1,0 +1,70 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Makes moving around the page feel premium */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+}
+
+/* Empty Title Header */
+.main-header {
+    height: 80px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+}
+
+/* The Tab Navigation */
+.tab-bar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1000;
+}
+
+.tab {
+    flex: 1; /* This ensures all 5 tabs take up equal space */
+    text-align: center;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    border-right: 1px solid #444;
+}
+
+.tab:last-child {
+    border-right: none;
+}
+
+.tab:hover {
+    background-color: #555;
+}
+
+/* Content Sections */
+.content-block {
+    height: 80vh; /* Keeps sections tall so you can actually "move around" */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #ccc;
+}
+
+#section1 { background-color: #fff; }
+#section2 { background-color: #e9ecef; }
+#section3 { background-color: #dee2e6; }
+#section4 { background-color: #ced4da; }
+#section5 { background-color: #adb5bd; }
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
