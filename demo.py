@@ -10,7 +10,7 @@ env = gym.make(
     net_file='intersect.net.xml',
     route_file='routes.rou.xml',
     use_gui=True, 
-    num_seconds=5000 # A shorter 5-minute run for the live demo
+    num_seconds=9999999999999999999999999 # A shorter 5-minute run for the live demo
 )
 
 # Load the model you saved earlier in train.py
