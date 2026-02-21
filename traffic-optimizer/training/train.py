@@ -4,11 +4,11 @@ from stable_baselines3 import DQN
 import os
 
 # 1. Define the paths to your SUMO network and route files
-net_file = "intersect.net.xml"
-route_file = "routes.rou.xml"
+net_file = "traffic-optimizer/data/intersect.net.xml"
+route_file = "traffic-optimizer/data/routes.rou.xml"
 
 # Ensure output directory exists for our stats
-os.makedirs("outputs", exist_ok=True)
+os.makedirs("traffic-optimizer/outputs", exist_ok=True)
 
 # 2. Initialize the SUMO-RL Environment
 # We use the Gymnasium API for a standard single-intersection setup
@@ -16,7 +16,7 @@ env = gym.make(
     'sumo-rl-v0',
     net_file=net_file,
     route_file=route_file,
-    out_csv_name='outputs/traffic_stats',
+    out_csv_name='traffic-optimizer/outputs/traffic_stats',
     use_gui=True, # Tip: Set to False during heavy training for a massive speed boost
     num_seconds=10000 # Total simulation time per episode in seconds
 )

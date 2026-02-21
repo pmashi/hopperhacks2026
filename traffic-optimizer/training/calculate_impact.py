@@ -25,10 +25,10 @@ def calculate_emissions(csv_filepath):
 # 2. Calculate for both the Baseline (Static) and the AI (Dynamic)
 print("--- Sustainability Impact Report ---")
 
-static_idle, static_co2 = calculate_emissions("../outputs/static_stats.csv")
+static_idle, static_co2 = calculate_emissions("traffic-optimizer/outputs/static_stats.csv")
 print(f"Baseline (Static Lights): {static_co2:.2f} kg of CO2 emitted ({static_idle} seconds idling)")
 
-ai_idle, ai_co2 = calculate_emissions("../outputs/ai_stats.csv")
+ai_idle, ai_co2 = calculate_emissions("traffic-optimizer/outputs/ai_stats.csv")
 print(f"AI Optimizer (Dynamic):   {ai_co2:.2f} kg of CO2 emitted ({ai_idle} seconds idling)")
 
 # 3. Calculate the Savings!
