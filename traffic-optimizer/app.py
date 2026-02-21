@@ -27,13 +27,13 @@ with col1:
         
         # 1. Start the first process (Demo/AI)
         # Using Popen makes it non-blocking
-        proc1 = subprocess.Popen(["python", "demo.py"])
+        proc1 = subprocess.Popen(["python", "./simulation/demo.py"])
         
         # 2. Add your 50ms delay
         time.sleep(0.05) 
         
         # 3. Start the second process (Baseline)
-        proc2 = subprocess.Popen(["python", "baseline.py"]) 
+        proc2 = subprocess.Popen(["python", "./simulation/baseline.py"]) 
         # Wait for both to finish before showing success
         proc1.wait()
         proc2.wait()
@@ -48,6 +48,7 @@ with col2:
             'Standard Timing': [500, 480, 510, 490],
             'AI Optimized': [400, 380, 390, 370]
         })
+        
         st.line_chart(chart_data)
 
 # Impact Metrics

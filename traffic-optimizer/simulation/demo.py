@@ -7,14 +7,14 @@ print("Loading trained AI Traffic Optimizer...")
 # Initialize environment with the GUI turned ON
 env = gym.make(
     'sumo-rl-v0',
-    net_file='../data/intersect.net.xml',
-    route_file='../data/routes.rou.xml',
+    net_file='data/intersect.net.xml',
+    route_file='data/routes.rou.xml',
     use_gui=True, 
     num_seconds=100000 # A shorter 5-minute run for the live demo
 )
 
 # Load the model you saved earlier in train.py
-model = DQN.load("../outputs/dqn_traffic_optimizer")
+model = DQN.load("outputs/dqn_traffic_optimizer")
 
 obs, info = env.reset()
 done = False
