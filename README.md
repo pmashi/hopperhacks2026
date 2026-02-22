@@ -1,4 +1,4 @@
-# Welcome to EcoTraffic!
+# Welcome to Sustainable Scholars!
 
 We have our chatbot in the GitHub Pages, so if you want to interact with that, make sure to check it out!
 
