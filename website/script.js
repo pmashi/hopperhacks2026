@@ -1,105 +1,111 @@
-// Replace with your actual Gemini API key. 
-// NOTE: For production, NEVER put API keys directly in frontend code! 
-    
-const API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; 
+// Replace with your actual Gemini API key.
+// NOTE: For production, NEVER put API keys directly in frontend code!
+const API_KEY = 'AIzaSyA2HVBTDwtbOWoSUkHqlGBP_1BvBGRHfxo';
 
-async function sendRequest() {
-    const inputField = document.getElementById('user-input');
-    const userText = inputField.value.trim();
-    const systemInstruction = `
-        You are an Environmental Compliance Legal Assistant for small businesses. 
-        Your goal is to help business owners navigate dense environmental regulations.
-        
-        STRICT RULES:
-        1. Only answer questions related to environmental laws, wastewater, emissions, waste disposal, and green permits.
-        2. Always attempt to cite specific local, state, or federal codes (e.g., Clean Water Act, EPA Title 40).
-        3. If you don't know the specific rule for a specific county, provide the most relevant state-level rule and direct them to the local Environmental Protection Department.
-        4. Use a professional, helpful tone. 
-        5. Disclaimer: State that you are an AI, not an attorney, and this is for informational purposes.
-    `;
-    // Prevent sending empty messages
-    if (userText === '') return;
+// Shared system instruction — both chats are identical in behavior/state.
+const DEFAULT_SYSTEM_INSTRUCTION = `
+    You are an Environmental Compliance Legal Assistant for small businesses. 
+    Your goal is to help business owners navigate dense environmental regulations.
 
-    // 1. Display the user's message
-    appendMessage('User', userText, 'user-msg');
-    
-    // Clear the input field
-    inputField.value = '';
+    STRICT RULES:
+    1. Only answer questions related to environmental laws, wastewater, emissions, waste disposal, and green permits.
+    2. Always attempt to cite specific local, state, or federal codes (e.g., Clean Water Act, EPA Title 40).
+    3. If you don't know the specific rule for a specific county, provide the most relevant state-level rule and direct them to the local Environmental Protection Department.
+    4. Use a professional, helpful tone.
+    5. Disclaimer: State that you are an AI, not an attorney, and this is for informational purposes.
+`;
 
-    // 2. Display a temporary "Thinking..." message
-    const loadingId = appendMessage('Bot', 'Loading...', 'bot-msg');
+class ChatWidget {
+    constructor(container, systemInstruction = DEFAULT_SYSTEM_INSTRUCTION) {
+        this.container = container;
+        this.systemInstruction = systemInstruction;
 
-    try {
-        // 3. Make the fetch request to the Gemini API
-        // We are using gemini-2.5-flash as it is the standard for fast, general text tasks
-        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
-            method: 'POST',
-            headers: {
-                'x-goog-api-key': API_KEY,
-                'Content-Type': 'application/json'                
-            },
-            body: JSON.stringify({
-            contents: [{
-    parts: [{
-        text: `${systemInstruction}\n\nUser Question: ${userText}`
-    }]
-}]  
-        })});
+        // Find the chat window inside this container (id starts with "chat-window")
+        this.chatWindow = Array.from(container.querySelectorAll('div')).find(d => d.id && d.id.startsWith('chat-window')) || container.querySelector('.chat-window');
+        this.input = container.querySelector('input[type="text"]');
+        this.button = container.querySelector('button');
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        if (!this.chatWindow || !this.input || !this.button) {
+            console.warn('ChatWidget: missing elements in container', container);
+            return;
         }
 
-        const data = await response.json();
-        
-        // Extract the text from the API response
-        const botText = data.candidates[0].content.parts[0].text;
+        this.button.addEventListener('click', () => this.send());
+        this.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.send();
+        });
+    }
 
-        // 4. Replace the "Thinking..." message with the actual response
-        updateMessage(loadingId, 'Bot', botText);
+    appendMessage(sender, text, className) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add(className);
+        const msgId = 'msg-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+        msgDiv.id = msgId;
+        msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
+        this.chatWindow.appendChild(msgDiv);
+        this.chatWindow.scrollTop = this.chatWindow.scrollHeight;
+        return msgId;
+    }
 
-    } catch (error) {
-        console.error('Error fetching from Gemini API:', error);
-        updateMessage(loadingId, 'Bot', 'Sorry, I encountered an error connecting to the server.');
+    updateMessage(id, sender, text) {
+        const msgDiv = document.getElementById(id);
+        if (msgDiv) {
+            const formattedText = text.replace(/\n/g, '<br>');
+            msgDiv.innerHTML = `<strong>${sender}:</strong> ${formattedText}`;
+        }
+    }
+
+    async send() {
+        const userText = this.input.value.trim();
+        if (userText === '') return;
+
+        // Display user's message in this chat only
+        this.appendMessage('User', userText, 'user-msg');
+        this.input.value = '';
+
+        // Loading placeholder
+        const loadingId = this.appendMessage('Bot', 'Loading...', 'bot-msg');
+
+        try {
+            const body = {
+                contents: [{ parts: [{ text: `${this.systemInstruction}\n\nUser Question: ${userText}` }] }]
+            };
+
+            const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
+                method: 'POST',
+                headers: {
+                    'x-goog-api-key': API_KEY,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+            const data = await response.json();
+            const botText = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, no response from model.';
+            this.updateMessage(loadingId, 'Bot', botText);
+        } catch (err) {
+            console.error('ChatWidget error:', err);
+            this.updateMessage(loadingId, 'Bot', 'Sorry, I encountered an error connecting to the server.');
+        }
     }
 }
 
-// Helper function to add a message to the chat window
-function appendMessage(sender, text, className) {
-    const chatWindow = document.getElementById('chat-window');
-    const msgDiv = document.createElement('div');
-    
-    msgDiv.classList.add(className);
-    
-    // Generate a unique ID for the message div (useful for updating loading messages)
-    const msgId = 'msg-' + Date.now();
-    msgDiv.id = msgId;
-
-    msgDiv.innerHTML = `<strong>${sender}:</strong> ${text}`;
-    chatWindow.appendChild(msgDiv);
-    
-    // Auto-scroll to the bottom of the chat window
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-
-    return msgId;
-}
-
-// Helper function to update an existing message
-function updateMessage(id, sender, text) {
-    const msgDiv = document.getElementById(id);
-    if (msgDiv) {
-        // Replace newline characters with <br> tags so Gemini's formatting looks correct in HTML
-        const formattedText = text.replace(/\n/g, '<br>');
-        msgDiv.innerHTML = `<strong>${sender}:</strong> ${formattedText}`;
-    }
-}
-
-// Allow users to send messages by pressing the "Enter" key
+// Initialize one ChatWidget per .chatbot-container and expose legacy sendRequest/sendRequest2 names
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('user-input').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            sendRequest();
+    const containers = document.querySelectorAll('.chatbot-container');
+    const widgets = [];
+
+    containers.forEach((container, idx) => {
+        const widget = new ChatWidget(container, DEFAULT_SYSTEM_INSTRUCTION);
+        widgets.push(widget);
+
+        // Expose global functions for existing inline onclick attributes
+        if (idx === 0) {
+            window.sendRequest = () => widget.send();
+        } else if (idx === 1) {
+            window.sendRequest2 = () => widget.send();
         }
     });
 });
-

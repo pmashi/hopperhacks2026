@@ -96,3 +96,24 @@ h2 {
     flex: 1;
     padding: 10px;
 }
+
+#chat-window2 {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background: white;
+    border: 1px solid #ddd;
+    overflow-y: scroll;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+#user-input2 {
+    flex: 1;
+    padding: 10px;
+}
+.input-area2 {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+}
+
