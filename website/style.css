@@ -12,8 +12,8 @@ html {
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #f8fafc;
-    color: #1e293b;
+    background: #eef2ef; /* Slightly darker earthy off-white */
+    color: #1a261d; /* Very dark muted green-grey */
 }
 
 p {
@@ -24,8 +24,8 @@ input:focus,
 textarea:focus,
 select:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    border-color: #388e3c; /* Darker leaf green */
+    box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.15);
 }
 
 .content-block > div,
@@ -38,11 +38,11 @@ select:focus {
 /* Empty Title Header */
 .main-header {
     height: 100px;
-    background: #0f172a; /* deep slate */
+    background: #0f2916; /* Very deep forest/pine green */
     display: flex;
     align-items: center;
     justify-content: center;  /* centers horizontally */
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 1px solid #081a0c;
 }
 
 .main-header h1 {
@@ -55,7 +55,7 @@ select:focus {
 
 /* The Tab Navigation */
 .tab-bar {
-    background-color: #1e293b;
+    background-color: #15381e; /* Dark pine green */
     display: flex;
     justify-content: center;
     gap: 40px;
@@ -64,7 +64,7 @@ select:focus {
 
 .tab {
     position: relative;
-    color: #e2e8f0;
+    color: #d0dbd1; /* Muted light sage */
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
@@ -79,7 +79,7 @@ select:focus {
     bottom: -6px;
     width: 0%;
     height: 3px;
-    background: #3b82f6; /* bright accent blue */
+    background: #4caf50; /* Richer nature green accent */
     transition: width 0.25s ease;
 }
 
@@ -92,7 +92,7 @@ select:focus {
 }
 
 .tab:focus {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid #4caf50;
     outline-offset: 4px;
 }
 
@@ -103,21 +103,22 @@ select:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #b8c9b9; /* Slightly darker mossy border */
 }
 
-#section1 { background: #f8fafc; }
+#section1 { background: #eef2ef; }
 #section2 { background: #ffffff; }
-#section3 { background: #f8fafc; }
+#section3 { background: #eef2ef; }
 #section4 { background: #ffffff; }
-#section5 { background: #f8fafc; }
+#section5 { background: #eef2ef; }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #0f172a;
+    color: #0f2916; /* Very deep forest green */
     margin-bottom: 20px;
 }
+
 /* Styling for the Chatbot */
 .chatbot-container {
     flex-direction: column;
@@ -129,7 +130,7 @@ h2 {
     max-width: 600px;
     height: 400px;
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #b8c9b9; /* Earthy grey-green */
     border-radius: 8px;
     overflow-y: scroll;
     padding: 15px;
@@ -152,15 +153,17 @@ h2 {
     max-width: 600px;
     height: 400px;
     background: white;
-    border: 1px solid #ddd;
+    border: 1px solid #b8c9b9;
     overflow-y: scroll;
     padding: 15px;
     margin-bottom: 10px;
 }
+
 #user-input2 {
     flex: 1;
     padding: 10px;
 }
+
 .input-area2 {
     display: flex;
     width: 100%;
@@ -176,11 +179,11 @@ h2 {
 
 .rep-card {
     background: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #b8c9b9;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
 }
 
 .lookup-area {
@@ -190,7 +193,7 @@ h2 {
 #address-input {
     padding: 10px;
     width: 300px;
-    border: 1px solid #ccc;
+    border: 1px solid #b8c9b9;
     border-radius: 4px;
 }
 
@@ -212,12 +215,12 @@ h2 {
 /* Individual Cards */
 .timeline-card {
     flex: 0 0 280px; /* Each card stays exactly 280px wide */
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
+    background: #f4f7f4; /* Very faint green tint */
+    border: 1px solid #b8c9b9;
     padding: 20px;
     border-radius: 12px;
-    border-top: 6px solid #1e3a8a;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-top: 6px solid #1b5e20; /* Darker nature green */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -225,6 +228,7 @@ h2 {
 .timeline-card:hover {
     transform: translateY(-5px);
     background: #fff;
+    box-shadow: 0 6px 15px rgba(27, 94, 32, 0.15); /* Stronger greenish shadow on hover */
 }
 
 /* Expanded State for Horizontal Cards */
@@ -242,18 +246,20 @@ h2 {
 .expanded-content textarea {
     width: 100%;
     height: 120px;
-    border: 1px solid #ddd;
+    border: 1px solid #b8c9b9;
     border-radius: 4px;
     padding: 8px;
     resize: none;
+    color: #2b3b2f;
 }
 
 /* Hide scrollbar for a cleaner look (optional) */
 .timeline-horizontal-wrapper::-webkit-scrollbar {
     height: 8px;
 }
+
 .timeline-horizontal-wrapper::-webkit-scrollbar-thumb {
-    background: #1e3a8a; 
+    background: #1b5e20; /* Darker nature green */
     border-radius: 10px;
 }
 
@@ -278,12 +284,12 @@ h2 {
 .contact-header h2 {
     font-size: 1.8rem;
     margin-bottom: 8px;
-    color: #1f2d3d;
+    color: #0f2916;
 }
 
 .contact-header p {
     font-size: 0.95rem;
-    color: #555;
+    color: #3a4a3e; /* Darker earthy text */
     max-width: 520px;
     margin: 0 auto;
 }
@@ -322,14 +328,14 @@ h2 {
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 0.85rem;
-    color: #333;
+    color: #1a261d;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
     padding: 10px 12px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #b8c9b9;
     border-radius: 6px;
     font-size: 0.9rem;
 }
@@ -341,7 +347,7 @@ h2 {
 }
 
 button {
-    background: #1e3a8a;
+    background: #1b5e20; /* Darker nature green */
     color: white;
     border: none;
     border-radius: 6px;
@@ -352,7 +358,7 @@ button {
 }
 
 button:hover {
-    background: #162d66;
+    background: #0d3812; /* Very dark deep green hover */
 }
 
 /* INFO CARD TEXT */
@@ -364,7 +370,7 @@ button:hover {
     display: block;
     font-size: 0.75rem;
     text-transform: uppercase;
-    color: #888;
+    color: #58695c; /* Darker mossy grey */
     margin-bottom: 4px;
 }
 
@@ -376,6 +382,12 @@ button:hover {
 .social-row a {
     margin-right: 12px;
     font-size: 0.9rem;
+    color: #1b5e20;
+    text-decoration: none;
+}
+
+.social-row a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive */
@@ -395,7 +407,7 @@ button:hover {
 }
 
 /* =========================
-   CHAT LAYOUT SECTION 1
+   CHAT LAYOUT SECTION 1 & 2
 ========================= */
 
 .chat-layout {
@@ -418,20 +430,20 @@ button:hover {
     background: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid #b8c9b9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     margin-top: 55px; /* Aligns the box nicely with the top of the chat window */
 }
 
 .summary-column h3 {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #0f172a;
+    color: #0f2916;
     margin-bottom: 12px;
 }
 
 .summary-column p {
-    color: #475569;
+    color: #3a4a3e;
     font-size: 0.95rem;
     line-height: 1.7;
 }
