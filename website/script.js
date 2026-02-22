@@ -1,6 +1,6 @@
 // Replace with your actual Gemini API key.
 // NOTE: For production, NEVER put API keys directly in frontend code!
-const API_KEY = 'ChangeMeToYourActualGeminiAPIKey';
+const API_KEY = 'AIzaSyAiOMV4pvWiV8WPoEbXZH2IyHzc4udbTJs';
 
 // Shared system instruction — both chats are identical in behavior/state.
 const DEFAULT_SYSTEM_INSTRUCTION = `
@@ -169,4 +169,18 @@ function toggleExpand(element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 300);
     }
+}
+
+function submitContact(event) {
+    event.preventDefault();
+
+    const button = document.querySelector(".contact-button");
+    button.innerText = "Submitting...";
+    button.disabled = true;
+
+    setTimeout(() => {
+        button.innerText = "Inquiry Submitted ✓";
+        button.style.background = "#2e7d32";
+        document.querySelector(".contact-form").reset();
+    }, 800);
 }

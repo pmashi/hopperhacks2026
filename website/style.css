@@ -51,18 +51,19 @@ body {
 
 /* Content Sections */
 .content-block {
-    height: 80vh; /* Keeps sections tall so you can actually "move around" */
+    min-height: 80vh;
+    padding: 80px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 #section1 { background-color: #fff; }
 #section2 { background-color: #e9ecef; }
 #section3 { background-color: #dee2e6; }
 #section4 { background-color: #ced4da; }
-#section5 { background-color: #adb5bd; }
+#section5 { background-color: #f8f9fb; }
 
 h2 {
     font-size: 2.5rem;
@@ -204,4 +205,126 @@ h2 {
 .timeline-horizontal-wrapper::-webkit-scrollbar-thumb {
     background: #2e7d32;
     border-radius: 10px;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+
+.contact-section {
+    padding: 60px 20px;
+}
+
+.contact-container {
+    max-width: 950px;   /* smaller container for better fit */
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #1f2d3d;
+}
+
+.contact-header p {
+    font-size: 0.95rem;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* slightly favor form */
+    gap: 40px; /* smaller gap */
+    align-items: start;
+}
+
+/* FORM CARD */
+.contact-form {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* INFO CARD */
+.contact-card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+/* FORM FIELDS */
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.contact-button {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 0.9rem;
+}
+
+/* INFO CARD TEXT */
+.info-block {
+    margin-bottom: 18px;
+}
+
+.info-block strong {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+/* SOCIAL LINKS */
+.social-row {
+    margin-top: 20px;
+}
+
+.social-row a {
+    margin-right: 12px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+.auto-expand {
+    resize: none;
+    overflow: hidden;
+    min-height: 44px;
+    max-height: 250px;
+    transition: height 0.15s ease;
 }
