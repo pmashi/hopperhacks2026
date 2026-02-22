@@ -4,7 +4,7 @@ We have our chatbot in the GitHub Pages, so if you want to interact with that, m
 
 ## How to access our simulation and data?
 
-Good question! In order to access our simulation, and due to time constraints, we only made it avaiable locally! Sorry about that...
+Good question! In order to access our simulation, EcoTraffic, and due to time constraints, we only made it available locally! Sorry about that...
 But it's pretty simple! Clone our repo, and navigate to app.py. In order to run this, we must run this code in your terminal, ```pip install streamlit```.
 This allows us to use the library streamlit, and this is where we can run the website. After doing so, run this line of code in your terminal:
 ```python -m streamlit run app.py```
