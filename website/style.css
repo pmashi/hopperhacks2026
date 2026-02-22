@@ -461,3 +461,109 @@ button:hover {
         max-width: 600px; /* Matches the chat window max-width */
     }
 }
+
+
+
+
+/* =========================
+   PROPOSALS SECTION 3
+========================= */
+
+.proposal-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.proposal-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.proposal-header h2 {
+    color: #0a210f;
+    margin-bottom: 15px;
+}
+
+.proposal-header p {
+    color: #4a5c50;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.proposal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns side-by-side */
+    gap: 40px;
+    align-items: stretch;
+}
+
+.proposal-card {
+    background: #ffffff;
+    border: 1px solid #c2cdc5; /* Sage border */
+    border-radius: 16px;
+    overflow: hidden; /* Keeps the image inside the rounded corners */
+    text-decoration: none; /* Removes the default blue link underline */
+    box-shadow: 0 4px 12px rgba(10, 33, 15, 0.06);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover effects for the whole card */
+.proposal-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 24px rgba(10, 33, 15, 0.12);
+    border-color: #aebcb3;
+}
+
+.proposal-image {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-bottom: 4px solid #2e5a31; /* Moss green accent line */
+}
+
+.proposal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the box without stretching */
+    transition: transform 0.6s ease;
+}
+
+/* Slight zoom effect on the image when hovering the card */
+.proposal-card:hover .proposal-image img {
+    transform: scale(1.05);
+}
+
+.proposal-content {
+    padding: 30px;
+    flex-grow: 1; /* Pushes the text to fill remaining space */
+}
+
+.proposal-content h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #0a210f;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.proposal-card:hover .proposal-content h3 {
+    color: #2e5a31; /* Title turns green on hover */
+}
+
+.proposal-content p {
+    color: #4a5c50;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive: Stack the cards on top of each other on smaller screens */
+@media (max-width: 800px) {
+    .proposal-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
