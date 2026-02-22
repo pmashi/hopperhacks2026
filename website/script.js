@@ -1,6 +1,4 @@
-// Replace with your actual Gemini key.
-// NOTE: For production, NEVER put API keys directly in frontend code!
-const API_KEY = 'API_KEY_GOES_HERE';
+const API_KEY = 'API_KEY';
 
 // System instruction for the First Bot (Compliance)
 const COMPLIANCE_SYSTEM_INSTRUCTION = `
