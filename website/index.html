@@ -109,7 +109,87 @@ Finally, these daily records highlight the committee stalemates that defined the
         </div>
     </div>
 </section>
-        <section id="section5" class="content-block"><h2>Contact Section</h2></section>
+        <section id="section5" class="content-block contact-section">
+    <div class="contact-container">
+
+        <div class="contact-header">
+            <h2>Get in Touch</h2>
+            <p>We welcome inquiries about policy research, partnerships, civic engagement, and community initiatives.</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Contact Form -->
+            <form class="contact-form" onsubmit="submitContact(event)">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Jane Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="jane@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Inquiry Type</label>
+                    <select id="subject">
+                        <option>General Inquiry</option>
+                        <option>Policy Research</option>
+                        <option>Partnership Request</option>
+                        <option>Volunteer Interest</option>
+                        <option>Media / Press</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        rows="1" 
+                        placeholder="Please provide details about your request..." 
+                        required
+                        class="auto-expand"
+                    ></textarea>
+                </div>
+                <button type="submit" class="contact-button">Submit Inquiry</button>
+            </form>
+
+            <!-- Organization Info Card -->
+            <div class="contact-card">
+                <h3>Organization Information</h3>
+
+                <div class="info-block">
+                    <strong>Email</strong>
+                    <p>info@sustainablescholars.org</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Phone</strong>
+                    <p>(555) 123-4567</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Office Hours</strong>
+                    <p>Monday – Friday<br>9:00 AM – 5:00 PM EST</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Headquarters</strong>
+                    <p>New York, NY</p>
+                </div>
+
+                <div class="social-row">
+                    <a href="">LinkedIn</a>
+                    <a href="">Twitter</a>
+                    <a href="">Instagram</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
     </main>
     <script src="script.js"></script>
 </body>
