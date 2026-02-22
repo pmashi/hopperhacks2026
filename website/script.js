@@ -1,7 +1,7 @@
 // Replace with your actual Gemini API key. 
 // NOTE: For production, NEVER put API keys directly in frontend code! 
     
-const API_KEY = 'AIzaSyAEsaQ5TRudXCortFb8g6Z3WoAvHGz7M-Y'; 
+const API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; 
 
 async function sendRequest() {
     const inputField = document.getElementById('user-input');
