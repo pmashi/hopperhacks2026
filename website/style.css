@@ -54,12 +54,20 @@ select:focus {
 }
 
 /* The Tab Navigation */
+/* The Tab Navigation - Forest Floor Tones */
 .tab-bar {
-    background-color: #15381e; /* Dark pine green */
+    background-color: #132e19; /* Dark forest green */
     display: flex;
     justify-content: center;
     gap: 40px;
     padding: 14px 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    
+    /* NEW: Sticky positioning */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures it stays on top of all other elements */
+
 }
 
 .tab {
@@ -566,4 +574,37 @@ button:hover {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+}
+
+#about, #section2, #section4 { background: #ffffff; }
+#section1, #section3, #section5 { background: #f0f2ed; }
+
+
+/* =========================
+   COMPACT ABOUT SECTION
+========================= */
+
+/* Remove the massive 80vh minimum height and shrink the outer padding */
+#about.content-block {
+    min-height: auto; 
+    padding: 50px 20px; 
+}
+
+/* Bring the grid closer to the mission statement */
+.about-content {
+    margin-bottom: 35px; 
+}
+
+/* Tighten the space under the "Our Mission" title */
+.about-content h2 {
+    margin-bottom: 12px;
+}
+
+/* Make the 3 cards themselves vertically thinner */
+.about-card {
+    padding: 25px 20px; 
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
 }
