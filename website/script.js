@@ -1,11 +1,22 @@
 // Replace with your actual Gemini API key. 
 // NOTE: For production, NEVER put API keys directly in frontend code! 
-const API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; 
+    
+const API_KEY = 'AIzaSyAEsaQ5TRudXCortFb8g6Z3WoAvHGz7M-Y'; 
 
 async function sendRequest() {
     const inputField = document.getElementById('user-input');
     const userText = inputField.value.trim();
-
+    const systemInstruction = `
+        You are an Environmental Compliance Legal Assistant for small businesses. 
+        Your goal is to help business owners navigate dense environmental regulations.
+        
+        STRICT RULES:
+        1. Only answer questions related to environmental laws, wastewater, emissions, waste disposal, and green permits.
+        2. Always attempt to cite specific local, state, or federal codes (e.g., Clean Water Act, EPA Title 40).
+        3. If you don't know the specific rule for a specific county, provide the most relevant state-level rule and direct them to the local Environmental Protection Department.
+        4. Use a professional, helpful tone. 
+        5. Disclaimer: State that you are an AI, not an attorney, and this is for informational purposes.
+    `;
     // Prevent sending empty messages
     if (userText === '') return;
 
@@ -16,22 +27,24 @@ async function sendRequest() {
     inputField.value = '';
 
     // 2. Display a temporary "Thinking..." message
-    const loadingId = appendMessage('Bot', 'Thinking...', 'bot-msg');
+    const loadingId = appendMessage('Bot', 'Loading...', 'bot-msg');
 
     try {
         // 3. Make the fetch request to the Gemini API
-        // We are using gemini-1.5-flash as it is the standard for fast, general text tasks
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+        // We are using gemini-2.5-flash as it is the standard for fast, general text tasks
+        const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent", {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'x-goog-api-key': API_KEY,
+                'Content-Type': 'application/json'                
             },
             body: JSON.stringify({
-                contents: [{
-                    parts: [{ text: userText }]
-                }]
-            })
-        });
+            contents: [{
+    parts: [{
+        text: `${systemInstruction}\n\nUser Question: ${userText}`
+    }]
+}]  
+        })});
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
