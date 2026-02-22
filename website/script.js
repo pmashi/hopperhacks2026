@@ -1,6 +1,6 @@
 // Replace with your actual Gemini   key.
 // NOTE: For production, NEVER put API keys directly in frontend code!
-const API_KEY = 'ChangeMeToYourActualGeminiAPIKey';
+const API_KEY = 'API_KEY_GOES_HERE';
 
 // Shared system instruction — both chats are identical in behavior/state.
 const DEFAULT_SYSTEM_INSTRUCTION = `
@@ -110,48 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-async function findDistricts() {
-    const address = document.getElementById('address-input').value;
-    const apiKey = 'FIXME'; // Replace with your actual Google Civic Information API key
-   // Adding 'levels' filters to focus on local/state government
-const url = `https://www.googleapis.com/civicinfo/v2/voterinfo?address=${encodeURIComponent(address)}&key=${apiKey}`;    try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.error) {
-            alert("Error: " + data.error.message);
-            return;
-        }
-
-        displayResults(data);
-    } catch (err) {
-        console.error("Fetch failed", err);
-    }
-}
-
-function displayResults(data) {
-    const output = document.getElementById('results');
-    output.innerHTML = ""; // Clear old results
-
-    // The API returns 'offices' (roles) and 'officials' (people)
-    data.offices.forEach(office => {
-        const officeName = office.name; // e.g., "City Council Member"
-        
-        // Match the office to the specific person in the 'officials' array
-        office.officialIndices.forEach(index => {
-            const official = data.officials[index];
-            output.innerHTML += `
-                <div class="rep-card">
-                    <h3>${officeName}</h3>
-                    <p><strong>Name:</strong> ${official.name}</p>
-                    <p><strong>Party:</strong> ${official.party || 'Non-partisan'}</p>
-                    <p><strong>Website:</strong> <a href="${official.urls ? official.urls[0] : '#'}">Official Site</a></p>
-                </div>
-            `;
-        });
-    });
-}
 
 
 function toggleExpand(element) {
