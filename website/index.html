@@ -6,177 +6,178 @@
     <title>Navigation Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<!-- HEADER -->
-<header class="main-header">
-    <h1>Sustainable Scholars</h1> 
-</header>
-<!-- NAVIGATION BAR -->
-<nav class="tab-bar">
-    <a href="#section1" class="tab">Home</a>
-    <a href="#section2" class="tab">About</a>
-    <a href="#section3" class="tab">Services</a>
-    <a href="#section4" class="tab">Portfolio</a>
-    <a href="#section5" class="tab">Contact</a>
-</nav>
-<main>    
-    <section id="section1" class="content-block chatbot-container">
-    <h2>Contact Our Assistant</h2>
+
+    <header class="main-header">
+        <h1  style="text-align: center;">Sustainable Scholars</h1> 
+    </header>
+
+    <nav class="tab-bar">
+        <a href="#section1" class="tab">Home</a>
+        <a href="#section2" class="tab">About</a>
+        <a href="#section3" class="tab">Services</a>
+        <a href="#section4" class="tab">Portfolio</a>
+        <a href="#section5" class="tab">Contact</a>
+    </nav>
+
+    <main>
+    
+        <section id="section1" class="content-block chatbot-container">
+    <h2>Ask About Environmental Compliance Laws</h2>
     <div id="chat-window">
         <div class="bot-msg"><strong>Bot:</strong> Hello! How can I help you today?</div>
     </div>
-    <div class="input-area">
+ <div class="input-area">
         <input type="text" id="user-input" placeholder="Type your message here...">
         <button id="send-btn" style="padding: 10px 20px; cursor: pointer;" onClick="sendRequest()">Send</button>
     </div>
-    </section>
-    <!-- ASSISTANT 2 -->
-    <section id="section2" class="content-block chatbot-container">
-    <h2>Contact Our Assistant 2</h2>
+        </section>
 
+        <section id="section2" class="content-block chatbot-container">
+    <h2>Contact Our Assistant 2</h2>
+    
     <div id="chat-window2">
         <div class="bot-msg"><strong>Bot:</strong> Hello! How can I help you today?</div>
     </div>
+
     <div class="input-area">
         <input type="text" id="user-input2" placeholder="Type your message here...">
         <button id="send-btn" style="padding: 10px 20px; cursor: pointer;" onClick="sendRequest2()">Send</button>
     </div>
-    </section>
-    
-    <section id="section3" class="content-block">
-    <h2>Find Your Representatives</h2>
-    <p>Enter your address to find your City Council, State Assembly, and State Senate leaders.</p>
-
-    <div class="lookup-area">
-        <input type="text" id="address-input" placeholder="123 Main St, New York, NY 10001">
-        <button id="lookup-btn" onClick="findDistricts()">Find My Reps</button>
-    </div>
-
-    <div id="results-container" class="results-grid"></div>
-    </section>
-    <!-- CITY COUNCIL BUDGET WEEK TIMELINE -->
-    <section id="section4" class="content-block">
         </section>
         <section id="section4" class="content-block">
     <div class="timeline-horizontal-wrapper">
-        <h2 class="timeline-title">City Council: Budget Week 2026</h2>    
+        <h2 class="timeline-title">City Council: Budget Week 2026</h2>
+        
         <div class="horizontal-timeline">
-            <!-- CARD 1 -->
             <div class="timeline-card" onclick="toggleExpand(this)">
                 <span class="date">Jan 21</span>
                 <h3>Implementation</h3>
                 <p>New reporting requirements and budget clean-up.</p>
                 <div class="expanded-content">
                     <textarea readonly>This 16MB journal marks the City Council’s transition into the new legislative year, serving as the first major regular meeting after the chaotic December budget sessions. Traditionally, the January transcript focuses on the immediate implementation of the newly passed budget and the introduction of clean-up ordinances. It captures the formal shift in power dynamics, reflecting a Council that had just successfully asserted its independence over the executive branch. Aldermen used this session to establish their legislative priorities for 2026, introducing measures focused on neighborhood safety, transit reliability, and zoning updates.
-                    Procedurally, this document contains a massive backlog of routine city business that was stalled during the budget crisis. The transcript includes the introduction of hundreds of new Mayoral and Aldermanic ordinances, ranging from the settlement of claims against the city to standard referrals to the Committee on Zoning, Landmarks, and Building Standards. It also details the approval of various appointments to city boards and commissions, which are subject to rigorous roll call votes.
-                    Furthermore, the political atmosphere captured in this journal highlights a demand for stricter executive oversight. With the Council having forced its own budget through just weeks prior, the January transcript reflects aldermen demanding tighter reporting requirements from city departments. Resolutions introduced in this session emphasize the need for transparency in how the newly appropriated $16.6 billion will be spent, setting a combative but proactive tone for the rest of the year.</textarea>
+Procedurally, this document contains a massive backlog of routine city business that was stalled during the budget crisis. The transcript includes the introduction of hundreds of new Mayoral and Aldermanic ordinances, ranging from the settlement of claims against the city to standard referrals to the Committee on Zoning, Landmarks, and Building Standards. It also details the approval of various appointments to city boards and commissions, which are subject to rigorous roll call votes.
+Furthermore, the political atmosphere captured in this journal highlights a demand for stricter executive oversight. With the Council having forced its own budget through just weeks prior, the January transcript reflects aldermen demanding tighter reporting requirements from city departments. Resolutions introduced in this session emphasize the need for transparency in how the newly appropriated $16.6 billion will be spent, setting a combative but proactive tone for the rest of the year.</textarea>
                 </div>
             </div>
-            <!-- CARD 2 -->
+
             <div class="timeline-card" onclick="toggleExpand(this)">
                 <span class="date">Dec 20</span>
                 <h3>The Vote</h3>
                 <p>Historic 30-18 vote overrides Mayor's tax hike.</p>
                 <div class="expanded-content">
                     <textarea readonly>This 86.78MB document is perhaps the most historically significant journal of the year, representing the climax of the 2025/2026 budget battle. Held on a rare Saturday session, this transcript captures the Chicago City Council doing the unprecedented: passing a $16.6 billion budget that was heavily amended and driven by the Council itself, effectively bypassing Mayor Brandon Johnson's original proposal. The journal details the intense floor debate, the parliamentary maneuvering required to push the substitute ordinance through, and the final, historic 30-18 roll call vote.
-                    The bulk of this massive document contains the exhaustive text of the 2026 Annual Appropriation Ordinance. It provides the exact, line-item funding for every single city department, detailing the allocations for the Chicago Police Department, public health initiatives, infrastructure projects, and homeless services. Crucially, the transcript reflects the Council's explicit removal of the Mayor's highly controversial $300 million property tax hike, instead relying on a patchwork of alternative revenues and strategic departmental cuts.
-                    Beyond the numbers, the journal serves as a permanent record of the political speeches and declarations made by the aldermen. It records the verbatim explanations of their votes—with supporters of the amended budget emphasizing fiscal responsibility and the protection of working-class homeowners from tax burdens. Conversely, dissenters and mayoral allies are recorded warning of the long-term structural deficits and potential cuts to progressive programs, making this transcript a vital primary source for understanding Chicago's political realignment.</textarea>
+The bulk of this massive document contains the exhaustive text of the 2026 Annual Appropriation Ordinance. It provides the exact, line-item funding for every single city department, detailing the allocations for the Chicago Police Department, public health initiatives, infrastructure projects, and homeless services. Crucially, the transcript reflects the Council's explicit removal of the Mayor's highly controversial $300 million property tax hike, instead relying on a patchwork of alternative revenues and strategic departmental cuts.
+Beyond the numbers, the journal serves as a permanent record of the political speeches and declarations made by the aldermen. It records the verbatim explanations of their votes—with supporters of the amended budget emphasizing fiscal responsibility and the protection of working-class homeowners from tax burdens. Conversely, dissenters and mayoral allies are recorded warning of the long-term structural deficits and potential cuts to progressive programs, making this transcript a vital primary source for understanding Chicago's political realignment.</textarea>
                 </div>
             </div>
-            <!-- CARD 3 -->
+
             <div class="timeline-card" onclick="toggleExpand(this)">
                 <span class="date">Dec 19</span>
                 <h3>Negotiations</h3>
                 <p>Corporate tax loophole debates and TIF sweeps.</p>
                 <div class="expanded-content">
                     <textarea readonly>Acting as the preamble to the final Saturday vote, this 42.88MB journal captures a day of frantic negotiations and high-stakes committee reports. The session was dominated by the Committee on Budget and Government Operations, which presented the finalized substitute budget ordinance. The transcript details the systematic stripping of the executive branch's most controversial revenue-generating measures, replacing them with compromises forged by the Council's emerging independent bloc.
-                    A significant portion of this transcript is dedicated to the debate over alternative revenue streams. With the property tax hike dead in the water, the journal captures intense discussions on how to close the city's massive budget gap. Aldermen are recorded debating the merits of closing corporate tax loopholes, increasing fees on high-end real estate transactions, and sweeping unspent funds from various Tax Increment Financing (TIF) districts to balance the books.
-                    The document also showcases the complex parliamentary procedures required to override an executive budget. It includes motions to discharge committees, votes to suspend the rules for immediate consideration, and the formal introduction of hundreds of pages of budget amendments. The procedural maneuvers documented here highlight how opposition aldermen utilized the City Council Rules of Order to stall the Mayor's agenda and force the compromises that would be voted on the following day.  </textarea>
+A significant portion of this transcript is dedicated to the debate over alternative revenue streams. With the property tax hike dead in the water, the journal captures intense discussions on how to close the city's massive budget gap. Aldermen are recorded debating the merits of closing corporate tax loopholes, increasing fees on high-end real estate transactions, and sweeping unspent funds from various Tax Increment Financing (TIF) districts to balance the books.
+The document also showcases the complex parliamentary procedures required to override an executive budget. It includes motions to discharge committees, votes to suspend the rules for immediate consideration, and the formal introduction of hundreds of pages of budget amendments. The procedural maneuvers documented here highlight how opposition aldermen utilized the City Council Rules of Order to stall the Mayor's agenda and force the compromises that would be voted on the following day.  </textarea>
                 </div>
             </div>
-            <!-- CARD 4 -->
+
             <div class="timeline-card" onclick="toggleExpand(this)">
                 <span class="date">Dec 15-18</span>
                 <h3>Breaking Point</h3>
                 <p>Daily sessions where negotiations stalled.</p>
                 <div class="expanded-content">
                     <textarea readonly>These journals (ranging from 11MB to 24MB) track the daily, grueling progression of "Budget Week." They capture the breaking point of negotiations, documenting the exact moments when it became clear that the Mayor's original budget did not have the 26 votes necessary to pass. The transcripts reflect a highly fractured Council, with various caucuses (including the Black, Latino, and Progressive caucuses) publicly drawing their lines in the sand regarding which departmental cuts or tax increases they would tolerate.
-                    A key feature of these transcripts is the extensive record of public participation and union influence. The journals document hours of testimony from representatives of major labor unions, progressive advocacy groups, and neighborhood associations. These citizens and lobbyists pleaded with the Council to preserve funding for mental health clinics, affordable housing, and youth employment programs, heavily influencing the aldermen's shifting allegiances as the week progressed.
-                    Finally, these daily records highlight the committee stalemates that defined the crisis. The journals record the failure of several key revenue ordinances to make it out of the Committee on Finance, forcing the Council into a precarious position just days before the December 31st statutory deadline. The delays and procedural warfare documented across these four days perfectly set the stage for the dramatic, Council-led takeover of the budget process that culminated over the weekend.</textarea>
+A key feature of these transcripts is the extensive record of public participation and union influence. The journals document hours of testimony from representatives of major labor unions, progressive advocacy groups, and neighborhood associations. These citizens and lobbyists pleaded with the Council to preserve funding for mental health clinics, affordable housing, and youth employment programs, heavily influencing the aldermen's shifting allegiances as the week progressed.
+Finally, these daily records highlight the committee stalemates that defined the crisis. The journals record the failure of several key revenue ordinances to make it out of the Committee on Finance, forcing the Council into a precarious position just days before the December 31st statutory deadline. The delays and procedural warfare documented across these four days perfectly set the stage for the dramatic, Council-led takeover of the budget process that culminated over the weekend.</textarea>
                 </div>
             </div>
         </div>
     </div>
-    </section>
-    <!-- Contact Form -->
-    <section id="section5" class="content-block contact-section">
-        <div class="contact-container">
-            <div class="contact-header">
-                <h2>Get in Touch</h2>
-                <p>We welcome inquiries about policy research, partnerships, civic engagement, and community initiatives.</p>
-            </div>
-            <div class="contact-grid">
-                <form class="contact-form" onsubmit="submitContact(event)">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Jane Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="jane@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Inquiry Type</label>
-                        <select id="subject">
-                            <option>General Inquiry</option>
-                            <option>Policy Research</option>
-                            <option>Partnership Request</option>
-                            <option>Volunteer Interest</option>
-                            <option>Media / Press</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea 
-                            id="message" 
-                            rows="1" 
-                            placeholder="Please provide details about your request..." 
-                            required
-                            class="auto-expand"
-                        ></textarea>
-                    </div>
-                    <button type="submit" class="contact-button">Submit Inquiry</button>
-                </form>
-                <!-- Organization Info Card -->
-                <div class="contact-card">
-                    <h3>Organization Information</h3>
-                    <div class="info-block">
-                        <strong>Email</strong>
-                        <p>info@sustainablescholars.org</p>
-                    </div>
-                    <div class="info-block">
-                        <strong>Phone</strong>
-                        <p>(555) 123-4567</p>
-                    </div>
-                    <div class="info-block">
-                        <strong>Office Hours</strong>
-                        <p>Monday – Friday<br>9:00 AM – 5:00 PM EST</p>
-                    </div>
-                    <div class="info-block">
-                        <strong>Headquarters</strong>
-                        <p>New York, NY</p>
-                    </div>
-                    <div class="social-row">
-                        <a href="">LinkedIn</a>
-                        <a href="">Twitter</a>
-                        <a href="">Instagram</a>
-                    </div>
+</section>
+        <section id="section5" class="content-block contact-section">
+    <div class="contact-container">
+
+        <div class="contact-header">
+            <h2>Get in Touch</h2>
+            <p>We welcome inquiries about policy research, partnerships, civic engagement, and community initiatives.</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- Contact Form -->
+            <form class="contact-form" onsubmit="submitContact(event)">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Jane Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="jane@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Inquiry Type</label>
+                    <select id="subject">
+                        <option>General Inquiry</option>
+                        <option>Policy Research</option>
+                        <option>Partnership Request</option>
+                        <option>Volunteer Interest</option>
+                        <option>Media / Press</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea 
+                        id="message" 
+                        rows="1" 
+                        placeholder="Please provide details about your request..." 
+                        required
+                        class="auto-expand"
+                    ></textarea>
+                </div>
+                <button type="submit" class="contact-button">Submit Inquiry</button>
+            </form>
+
+            <!-- Organization Info Card -->
+            <div class="contact-card">
+                <h3>Organization Information</h3>
+
+                <div class="info-block">
+                    <strong>Email</strong>
+                    <p>info@sustainablescholars.org</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Phone</strong>
+                    <p>(555) 123-4567</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Office Hours</strong>
+                    <p>Monday – Friday<br>9:00 AM – 5:00 PM EST</p>
+                </div>
+
+                <div class="info-block">
+                    <strong>Headquarters</strong>
+                    <p>New York, NY</p>
+                </div>
+
+                <div class="social-row">
+                    <a href="">LinkedIn</a>
+                    <a href="">Twitter</a>
+                    <a href="">Instagram</a>
                 </div>
             </div>
+
         </div>
-    </section>
-</main>
-<script src="script.js"></script>
+    </div>
+</section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
