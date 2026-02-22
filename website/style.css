@@ -393,3 +393,59 @@ button:hover {
     max-height: 250px;
     transition: height 0.15s ease;
 }
+
+/* =========================
+   CHAT LAYOUT SECTION 1
+========================= */
+
+.chat-layout {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.chat-column {
+    flex: 1.2; /* Takes up slightly more space for the chat */
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
+.summary-column {
+    flex: 0.8; /* Takes up the remaining space */
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 55px; /* Aligns the box nicely with the top of the chat window */
+}
+
+.summary-column h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.summary-column p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Responsive: Stack columns on smaller screens */
+@media (max-width: 850px) {
+    .chat-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .summary-column {
+        margin-top: 20px;
+        width: 100%;
+        max-width: 600px; /* Matches the chat window max-width */
+    }
+}

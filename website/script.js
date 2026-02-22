@@ -1,9 +1,9 @@
-// Replace with your actual Gemini   key.
+// Replace with your actual Gemini key.
 // NOTE: For production, NEVER put API keys directly in frontend code!
 const API_KEY = 'API_KEY_GOES_HERE';
 
-// Shared system instruction — both chats are identical in behavior/state.
-const DEFAULT_SYSTEM_INSTRUCTION = `
+// System instruction for the First Bot (Compliance)
+const COMPLIANCE_SYSTEM_INSTRUCTION = `
     You are an Environmental Compliance Legal Assistant for small businesses. 
     Your goal is to help business owners navigate dense environmental regulations.
 
@@ -15,8 +15,21 @@ const DEFAULT_SYSTEM_INSTRUCTION = `
     5. Disclaimer: State that you are an AI, not an attorney, and this is for informational purposes.
 `;
 
+// System instruction for the Second Bot (Advocacy)
+const ADVOCACY_SYSTEM_INSTRUCTION = `
+    You are an Environmental Policy Advocacy Assistant.
+    Your goal is to help users formulate actionable plans, draft outreach to local representatives, and understand the grassroots steps needed to drive real environmental policy changes in their communities.
+
+    STRICT RULES:
+    1. Focus on community organizing, drafting letters/emails to representatives, petition creation, and grassroots campaign strategies.
+    2. Provide clear, step-by-step actionable advice for engaging with local government (e.g., city councils, state legislatures).
+    3. Maintain an encouraging, empowering, and professional tone.
+    4. If drafting outreach, provide templates with placeholders like [Representative Name] and [Specific Issue].
+    5. Disclaimer: State that you are an AI assisting with advocacy strategy, not a political consultant.
+`;
+
 class ChatWidget {
-    constructor(container, systemInstruction = DEFAULT_SYSTEM_INSTRUCTION) {
+    constructor(container, systemInstruction) {
         this.container = container;
         this.systemInstruction = systemInstruction;
 
@@ -98,7 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const widgets = [];
 
     containers.forEach((container, idx) => {
-        const widget = new ChatWidget(container, DEFAULT_SYSTEM_INSTRUCTION);
+        // Assign the correct instruction based on the container index
+        const instruction = idx === 0 ? COMPLIANCE_SYSTEM_INSTRUCTION : ADVOCACY_SYSTEM_INSTRUCTION;
+        
+        const widget = new ChatWidget(container, instruction);
         widgets.push(widget);
 
         // Expose global functions for existing inline onclick attributes
@@ -109,8 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
-
 
 function toggleExpand(element) {
     // 1. (Optional) Close any other open boxes first
