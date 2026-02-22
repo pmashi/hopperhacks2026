@@ -1,6 +1,7 @@
 # Welcome to Sustainable Scholars!
 
 We have our chatbot in the GitHub Pages, so if you want to interact with that, make sure to check it out!
+https://pmashi.github.io/hopperhacks2026/website/index.html
 
 ## How to access our simulation and data?
 
