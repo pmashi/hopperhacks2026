@@ -1,4 +1,4 @@
-// Replace with your actual Gemini API key.
+// Replace with your actual Gemini   key.
 // NOTE: For production, NEVER put API keys directly in frontend code!
 const API_KEY = 'ChangeMeToYourActualGeminiAPIKey';
 
@@ -115,7 +115,7 @@ async function findDistricts() {
     const address = document.getElementById('address-input').value;
     const apiKey = 'FIXME'; // Replace with your actual Google Civic Information API key
    // Adding 'levels' filters to focus on local/state government
-const url = `https://www.googleapis.com/civicinfo/v2/representatives?address=${encodeURIComponent(address)}&levels=administrativeArea1&levels=administrativeArea2&levels=locality&key=${apiKey}`;    try {
+const url = `https://www.googleapis.com/civicinfo/v2/voterinfo?address=${encodeURIComponent(address)}&key=${apiKey}`;    try {
         const response = await fetch(url);
         const data = await response.json();
 
