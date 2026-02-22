@@ -1,10 +1,6 @@
 // Replace with your actual Gemini   key.
 // NOTE: For production, NEVER put API keys directly in frontend code!
-<<<<<<< HEAD
 const API_KEY = 'API_KEY_GOES_HERE';
-=======
-const API_KEY = 'AIzaSyAiOMV4pvWiV8WPoEbXZH2IyHzc4udbTJs';
->>>>>>> 773dd900b8be1108d80c340950eb2fc6aaa31c26
 
 // Shared system instruction — both chats are identical in behavior/state.
 const DEFAULT_SYSTEM_INSTRUCTION = `
